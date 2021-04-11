@@ -1,0 +1,52 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://UI/Main.gd" type="Script" id=1]
+
+[node name="Lose" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_left = 1.41418
+margin_right = 1025.41
+margin_bottom = 600.0
+color = Color( 0.172549, 0.172549, 0.172549, 0.752941 )
+
+[node name="Label" type="Label" parent="."]
+margin_left = 257.095
+margin_top = 22.6274
+margin_right = 771.095
+margin_bottom = 322.627
+text = "The British Man got ya lad, truly a right shame."
+align = 1
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Play" type="Button" parent="."]
+margin_left = 467.0
+margin_top = 250.0
+margin_right = 567.0
+margin_bottom = 290.0
+text = "Try Again"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Quit" type="Button" parent="."]
+margin_left = 467.0
+margin_top = 300.0
+margin_right = 567.0
+margin_bottom = 340.0
+text = "Quit"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="Play" to="." method="_on_Play_pressed"]
+[connection signal="pressed" from="Quit" to="." method="_on_Quit_pressed"]

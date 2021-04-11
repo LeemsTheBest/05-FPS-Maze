@@ -1,0 +1,19 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/blockSnowCurveLow.obj-48ce6ec5a1425c9b55bc4c726317ad08.mesh"
+
+[deps]
+
+files=[ "res://.import/blockSnowCurveLow.obj-48ce6ec5a1425c9b55bc4c726317ad08.mesh" ]
+
+source_file="res://Assets/Models/OBJ format/blockSnowCurveLow.obj"
+dest_files=[ "res://.import/blockSnowCurveLow.obj-48ce6ec5a1425c9b55bc4c726317ad08.mesh", "res://.import/blockSnowCurveLow.obj-48ce6ec5a1425c9b55bc4c726317ad08.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+optimize_mesh=true

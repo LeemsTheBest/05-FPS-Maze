@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/soundeffectsteeldrum.ogg-5d8094951c17dcc341e99f8ea30650f0.oggstr"
+
+[deps]
+
+source_file="res://Assets/soundeffectsteeldrum.ogg"
+dest_files=[ "res://.import/soundeffectsteeldrum.ogg-5d8094951c17dcc341e99f8ea30650f0.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

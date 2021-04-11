@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/britishenemy.ogg-0521cb2b7a6de38759f7b3787a44c9dc.oggstr"
+
+[deps]
+
+source_file="res://Assets/britishenemy.ogg"
+dest_files=[ "res://.import/britishenemy.ogg-0521cb2b7a6de38759f7b3787a44c9dc.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

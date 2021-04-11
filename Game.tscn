@@ -1,0 +1,330 @@
+[gd_scene load_steps=24 format=2]
+
+[ext_resource path="res://Player/Player.gd" type="Script" id=1]
+[ext_resource path="res://Key/key.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Exit/Exit.gd" type="Script" id=3]
+[ext_resource path="res://UI/InputRemapMenu.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Enemy/Enemy.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Assets/musicalchimessound.ogg" type="AudioStream" id=6]
+[ext_resource path="res://Assets/thingiang.wav" type="AudioStream" id=7]
+[ext_resource path="res://Assets/britishenemy.ogg" type="AudioStream" id=8]
+
+[sub_resource type="PlaneMesh" id=1]
+size = Vector2( 100, 50 )
+
+[sub_resource type="SpatialMaterial" id=2]
+albedo_color = Color( 0.380392, 0.380392, 0.380392, 1 )
+
+[sub_resource type="ConvexPolygonShape" id=3]
+points = PoolVector3Array( 50, 0, 25, -50, 0, 25, 50, 0, -25, -50, 0, -25 )
+
+[sub_resource type="SphereShape" id=4]
+radius = 0.5
+
+[sub_resource type="CubeMesh" id=5]
+size = Vector3( 100, 6, 1 )
+
+[sub_resource type="SpatialMaterial" id=6]
+albedo_color = Color( 0.607843, 0.607843, 0.607843, 1 )
+metallic = 1.0
+
+[sub_resource type="ConvexPolygonShape" id=7]
+points = PoolVector3Array( -50, 3, 0.5, 50, 3, -0.5, 50, 3, 0.5, -50, 3, -0.5, -50, -3, 0.5, 50, -3, -0.5, 50, -3, 0.5, -50, -3, -0.5, 50, 3, 0.5, -50, 3, -0.5, 50, 3, -0.5, -50, 3, 0.5, 50, -3, 0.5, -50, -3, -0.5, 50, -3, -0.5, -50, -3, 0.5, 50, 3, 0.5, -50, -3, 0.5, -50, 3, 0.5, 50, -3, 0.5, 50, 3, -0.5, -50, -3, -0.5, -50, 3, -0.5, 50, -3, -0.5 )
+
+[sub_resource type="SpatialMaterial" id=8]
+albedo_color = Color( 0.607843, 0.607843, 0.607843, 1 )
+metallic = 1.0
+roughness = 0.86
+
+[sub_resource type="ConvexPolygonShape" id=9]
+points = PoolVector3Array( -50, 3, 0.5, 50, 3, -0.5, 50, 3, 0.5, -50, 3, -0.5, -50, -3, 0.5, 50, -3, -0.5, 50, -3, 0.5, -50, -3, -0.5, 50, 3, 0.5, -50, 3, -0.5, 50, 3, -0.5, -50, 3, 0.5, 50, -3, 0.5, -50, -3, -0.5, 50, -3, -0.5, -50, -3, 0.5, 50, 3, 0.5, -50, -3, 0.5, -50, 3, 0.5, 50, -3, 0.5, 50, 3, -0.5, -50, -3, -0.5, -50, 3, -0.5, 50, -3, -0.5 )
+
+[sub_resource type="SpatialMaterial" id=10]
+albedo_color = Color( 0.607843, 0.607843, 0.607843, 1 )
+metallic = 1.0
+roughness = 0.86
+
+[sub_resource type="CubeMesh" id=11]
+material = SubResource( 10 )
+size = Vector3( 1, 6, 50 )
+
+[sub_resource type="ConvexPolygonShape" id=12]
+points = PoolVector3Array( -0.5, 3, 25, 0.5, 3, -25, 0.5, 3, 25, -0.5, 3, -25, -0.5, -3, 25, 0.5, -3, -25, 0.5, -3, 25, -0.5, -3, -25, 0.5, 3, 25, -0.5, 3, -25, 0.5, 3, -25, -0.5, 3, 25, 0.5, -3, 25, -0.5, -3, -25, 0.5, -3, -25, -0.5, -3, 25, 0.5, 3, 25, -0.5, -3, 25, -0.5, 3, 25, 0.5, -3, 25, 0.5, 3, -25, -0.5, -3, -25, -0.5, 3, -25, 0.5, -3, -25 )
+
+[sub_resource type="ConvexPolygonShape" id=13]
+points = PoolVector3Array( -0.5, 3, 25, 0.5, 3, -25, 0.5, 3, 25, -0.5, 3, -25, -0.5, -3, 25, 0.5, -3, -25, 0.5, -3, 25, -0.5, -3, -25, 0.5, 3, 25, -0.5, 3, -25, 0.5, 3, -25, -0.5, 3, 25, 0.5, -3, 25, -0.5, -3, -25, 0.5, -3, -25, -0.5, -3, 25, 0.5, 3, 25, -0.5, -3, 25, -0.5, 3, 25, 0.5, -3, 25, 0.5, 3, -25, -0.5, -3, -25, -0.5, 3, -25, 0.5, -3, -25 )
+
+[sub_resource type="CapsuleShape" id=14]
+radius = 0.5
+height = 1.5
+
+[sub_resource type="BoxShape" id=15]
+extents = Vector3( 0.5, 0.1, 0.5 )
+
+[node name="Game" type="Spatial"]
+
+[node name="Maze" type="Spatial" parent="."]
+
+[node name="Ground" type="StaticBody" parent="Maze"]
+
+[node name="MeshInstance" type="MeshInstance" parent="Maze/Ground"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.538404, -0.0940495, -0.300644 )
+mesh = SubResource( 1 )
+material/0 = SubResource( 2 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Maze/Ground"]
+shape = SubResource( 3 )
+
+[node name="key" parent="Maze" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 49, 0, 24 )
+
+[node name="Exit" type="Area" parent="Maze"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 49, 0, -24 )
+script = ExtResource( 3 )
+
+[node name="Light" type="OmniLight" parent="Maze/Exit"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0839589, 1.13286, -0.544316 )
+light_color = Color( 1, 0, 0, 1 )
+light_energy = 10.0
+omni_range = 3.0
+omni_attenuation = 2.0
+
+[node name="CollisionShape" type="CollisionShape" parent="Maze/Exit"]
+shape = SubResource( 4 )
+
+[node name="Walls" type="StaticBody" parent="Maze"]
+
+[node name="MeshInstance" type="MeshInstance" parent="Maze/Walls"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 25 )
+mesh = SubResource( 5 )
+material/0 = SubResource( 6 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Maze/Walls"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 25 )
+shape = SubResource( 7 )
+
+[node name="MeshInstance2" type="MeshInstance" parent="Maze/Walls"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, -25 )
+mesh = SubResource( 5 )
+material/0 = SubResource( 8 )
+
+[node name="CollisionShape2" type="CollisionShape" parent="Maze/Walls"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, -25 )
+shape = SubResource( 9 )
+
+[node name="MeshInstance3" type="MeshInstance" parent="Maze/Walls"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -50, 3, 0 )
+mesh = SubResource( 11 )
+material/0 = null
+
+[node name="CollisionShape3" type="CollisionShape" parent="Maze/Walls"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -50, 3, 0 )
+shape = SubResource( 12 )
+
+[node name="MeshInstance4" type="MeshInstance" parent="Maze/Walls"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 50, 3, 0 )
+mesh = SubResource( 11 )
+material/0 = null
+
+[node name="CollisionShape4" type="CollisionShape" parent="Maze/Walls"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 50, 3, 0 )
+shape = SubResource( 13 )
+
+[node name="CSGBox" type="CSGBox" parent="Maze"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 5 )
+use_collision = true
+width = 1.0
+height = 6.0
+depth = 44.0753
+
+[node name="CSGBox11" type="CSGBox" parent="Maze"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -31.7188, 3, 5 )
+use_collision = true
+width = 1.0
+height = 6.0
+depth = 25.7979
+
+[node name="CSGBox8" type="CSGBox" parent="Maze"]
+transform = Transform( -0.00308995, 0.00976858, -0.999948, 0.999483, -0.0319755, -0.00340091, -0.0320071, -0.999441, -0.00966472, -40.223, 5.52453, 0.491182 )
+use_collision = true
+width = 1.0
+height = 6.0
+depth = 44.0753
+
+[node name="CSGBox6" type="CSGBox" parent="Maze"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -17.8512, 3, 5 )
+use_collision = true
+width = 1.0
+height = 7.35281
+depth = 21.6026
+
+[node name="CSGBox9" type="CSGBox" parent="Maze"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -17.8512, 3, -21.455 )
+use_collision = true
+width = 1.0
+height = 7.35281
+depth = 21.6026
+
+[node name="CSGBox12" type="CSGBox" parent="Maze"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 43.0109, 1.68395, -21.455 )
+use_collision = true
+width = 1.0
+height = 7.35281
+depth = 21.6026
+
+[node name="CSGBox18" type="CSGBox" parent="Maze"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 31.8178, 2.08768, -10.3948 )
+use_collision = true
+width = 1.0
+height = 7.35281
+depth = 21.6026
+
+[node name="CSGBox19" type="CSGBox" parent="Maze"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 31.8178, 2.08768, 25.4876 )
+use_collision = true
+width = 1.0
+height = 7.35281
+depth = 21.6026
+
+[node name="CSGBox20" type="CSGBox" parent="Maze"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 40.2904, 2.08768, 25.4876 )
+use_collision = true
+width = 1.0
+height = 7.35281
+depth = 21.6026
+
+[node name="CSGBox15" type="CSGBox" parent="Maze"]
+transform = Transform( 0.850628, 0, 0.525769, 0, 1, 0, -0.525769, 0, 0.850628, 27.8471, 1.68395, -21.455 )
+use_collision = true
+width = 1.0
+height = 7.35281
+depth = 21.6026
+
+[node name="CSGBox17" type="CSGBox" parent="Maze"]
+transform = Transform( 0.850628, 0, 0.525769, 0, 1, 0, -0.525769, 0, 0.850628, 25.7612, 0.641973, -17.2288 )
+use_collision = true
+width = 1.0
+height = 10.1299
+depth = 12.6495
+
+[node name="CSGBox16" type="CSGBox" parent="Maze"]
+transform = Transform( 0.0325446, 0, 0.99947, 0, 1, 0, -0.99947, 0, 0.0325446, 22.5776, 1.56814, -21.455 )
+use_collision = true
+width = 1.0
+height = 7.35281
+depth = 11.9408
+
+[node name="CSGBox13" type="CSGBox" parent="Maze"]
+transform = Transform( 0.525962, 0, -0.850508, 0, 1, 0, 0.850508, 0, 0.525962, 43.0109, 2.12476, 8.12069 )
+use_collision = true
+width = 1.0
+height = 7.35281
+depth = 21.6026
+
+[node name="CSGBox14" type="CSGBox" parent="Maze"]
+transform = Transform( 0.525962, 0, -0.850508, 0, 1, 0, 0.850508, 0, 0.525962, 26.0002, 2.13249, 8.12069 )
+use_collision = true
+width = 1.0
+height = 7.35281
+depth = 21.6026
+
+[node name="CSGBox10" type="CSGBox" parent="Maze"]
+transform = Transform( 0.625025, 0, 0.780605, 0, 1, 0, -0.780605, 0, 0.625025, -48.9628, 3, -21.455 )
+use_collision = true
+width = 1.0
+height = 7.35281
+depth = 21.6026
+
+[node name="CSGBox7" type="CSGBox" parent="Maze"]
+transform = Transform( 0.671126, 0, 0.741344, 0, 1, 0, -0.741344, 0, 0.671126, -11.4087, 3.08147, 14.9152 )
+use_collision = true
+width = 1.0
+height = 7.17011
+depth = 16.5444
+
+[node name="CSGBox21" type="CSGBox" parent="Maze"]
+transform = Transform( 0.671126, 0, 0.741344, 0, 1, 0, -0.741344, 0, 0.671126, -28.3161, 3.08147, -3.60527 )
+use_collision = true
+width = 1.0
+height = 5.46174
+depth = 10.3357
+
+[node name="CSGBox22" type="CSGBox" parent="Maze"]
+transform = Transform( 0.671126, 0, 0.741344, 0, 1, 0, -0.741344, 0, 0.671126, -28.3161, 3.08147, -23.7684 )
+use_collision = true
+width = 1.0
+height = 5.46174
+depth = 10.3357
+
+[node name="CSGBox4" type="CSGBox" parent="Maze"]
+transform = Transform( 0.562464, -0.0579299, 0.82479, 0.0326383, 0.998321, 0.0478604, -0.826177, 0, 0.563411, -8.71974, 2.22377, 7.08457 )
+use_collision = true
+width = 1.0
+height = 6.675
+depth = 21.0604
+
+[node name="CSGBox5" type="CSGBox" parent="Maze"]
+transform = Transform( -0.0122073, -0.0474841, 0.998797, 0.0326383, 0.998321, 0.0478604, -0.999393, 0.0331833, -0.010637, -24.6448, 2.00755, 8.06821 )
+use_collision = true
+width = 1.0
+height = 8.7249
+depth = 13.574
+
+[node name="CSGBox2" type="CSGBox" parent="Maze"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 3, -5 )
+use_collision = true
+width = 1.0
+height = 6.0
+depth = 44.0753
+
+[node name="CSGBox3" type="CSGBox" parent="Maze"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 17.0594, 3, -5 )
+use_collision = true
+width = 1.0
+height = 6.0
+depth = 64.6252
+
+[node name="CSGSphere" type="CSGSphere" parent="Maze/CSGBox3"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.31531, 0 )
+operation = 2
+radius = 4.0
+
+[node name="Player" type="KinematicBody" parent="."]
+transform = Transform( -1.62921e-07, 0, -1, 0, 1, 0, 1, 0, -1.62921e-07, -49, 0, 0 )
+script = ExtResource( 1 )
+
+[node name="Body" type="CollisionShape" parent="Player"]
+transform = Transform( 1, 0, 0, 0, -0.0103845, -0.999946, 0, 0.999946, -0.0103845, 0, 1.3, 0 )
+shape = SubResource( 14 )
+
+[node name="Feet" type="CollisionShape" parent="Player"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0 )
+shape = SubResource( 15 )
+
+[node name="Pivot" type="Spatial" parent="Player"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0 )
+
+[node name="Camera" type="Camera" parent="Player/Pivot"]
+current = true
+
+[node name="Key" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+
+[node name="British" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 8 )
+volume_db = -7.0
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 7 )
+volume_db = -6.0
+autoplay = true
+
+[node name="UI" type="CanvasLayer" parent="."]
+pause_mode = 2
+
+[node name="Menu" parent="UI" instance=ExtResource( 4 )]
+visible = false
+
+[node name="Enemy" parent="." instance=ExtResource( 5 )]
+transform = Transform( -0.0373494, 0, -0.196482, 0, 0.2, 0, 0.196482, 0, -0.0373494, 45.5223, -0.458838, 21.5417 )
+[connection signal="body_entered" from="Maze/Exit" to="Maze/Exit" method="_on_Exit_body_entered"]
